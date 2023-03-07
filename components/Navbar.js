@@ -31,7 +31,12 @@ export default function Home() {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <a href="/">
-                <h1 className="text-4xl text-white">Le Quai Antique</h1>
+              <img
+              src="/logonobg.png"
+              width={50}
+              height={50}
+              className=""
+            />
               </a>
               <div className="md:hidden">
                 <button
@@ -81,6 +86,11 @@ export default function Home() {
                 <li className="text-white text-xl">
                   <Link href="#menus">
                     Menus
+                  </Link>
+                </li>
+                <li className="text-white text-xl">
+                  <Link href="loginPage">
+                    Connexion
                   </Link>
                 </li>
                 <li className="text-white text-xl">
