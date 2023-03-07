@@ -10,12 +10,12 @@ const ProfilePage = () => {
       <div class="h-full bg-black bg-no-repeat bg-cover to-orange-400">
         <div className="pt-16 pb-6 flex flex-col items-center justify-center">
           <img
-            src="/LOGONOBG.png"
+            src="/logonobg.png"
             alt="programme"
             width={300}
             height={500}
             className="mx-auto sm:px-5"
-            loading="lazy"
+            loading="eager"
           />
           <div className="bg-white shadow-2xl rounded w-1/ sm:m-6 p-10">
             <p className="text-3xl text-left font-black sm:text-center sm:text-2xl w-fit">
