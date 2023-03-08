@@ -42,7 +42,7 @@ const Menus: React.FC<Props> = (props) => {
               <p className="text-white text-center text-4xl pt-5">Menus : </p>
               <div className="grid grid-cols-2 gap-4">
                 {props.feed.map((post) => (
-                  <div key={post.id} className="text-white text-2xl">
+                  <div key={post.id} className="text-white text-2xl cursor-pointer">
                     <Post post={post} />
                   </div>
                 ))}
