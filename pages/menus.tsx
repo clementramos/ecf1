@@ -26,15 +26,29 @@ type Props = {
 const Menus: React.FC<Props> = (props) => {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="bg-black">
-        <h1>Public Feed</h1>
-        <main className="bg-black pt-20 h-screen">
-          {props.feed.map((post) => (
-            <div key={post.id} className="text-white">
-              <Post post={post} />
+        <main className="bg-black pt-24 h-screen">
+          <img
+            src="/logonobg.png"
+            alt="programme"
+            width={400}
+            height={500}
+            className="mx-auto sm:px-5"
+            loading="eager"
+          />
+          <div className="flex justify-center">
+            <div className="w-1/2 bg-red-ecf rounded-lg shadow shadow-white items-center">
+              <p className="text-white text-center text-4xl pt-5">Menus : </p>
+              <div className="grid grid-cols-2 gap-4">
+                {props.feed.map((post) => (
+                  <div key={post.id} className="text-white text-2xl">
+                    <Post post={post} />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </main>
       </div>
     </>

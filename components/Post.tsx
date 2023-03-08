@@ -18,7 +18,7 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   return (
     <div onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
       <h2>{post.title}</h2>
-      <small>By {authorName}</small>
+      <p className="font-thin text-sm">Par : {authorName}</p>
       <ReactMarkdown children={post.content} />
       <style jsx>{`
         div {
