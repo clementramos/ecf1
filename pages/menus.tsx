@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import prisma from "../lib/prisma";
 import React from "react";
 import Post, { PostProps } from "../components/Post";
+import Navbar from "../components/Navbar";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -25,30 +26,17 @@ type Props = {
 const Menus: React.FC<Props> = (props) => {
   return (
     <>
-      <div className="page">
+    <Navbar/>
+      <div className="bg-black">
         <h1>Public Feed</h1>
-        <main>
+        <main className="bg-black pt-20 h-screen">
           {props.feed.map((post) => (
-            <div key={post.id} className="post">
+            <div key={post.id} className="text-white">
               <Post post={post} />
             </div>
           ))}
         </main>
       </div>
-      <style jsx>{`
-        .post {
-          background: white;
-          transition: box-shadow 0.1s ease-in;
-        }
-
-        .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
-        }
-
-        .post + .post {
-          margin-top: 2rem;
-        }
-      `}</style>
     </>
   );
 };
