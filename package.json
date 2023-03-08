@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
+    "@prisma/client": "^4.11.0",
     "next": "13.2.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.5"
   },
   "devDependencies": {
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
     "autoprefixer": "^10.4.13",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
