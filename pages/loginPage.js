@@ -30,6 +30,27 @@ const ProfilePage = () => {
                 Créer-en un ici.
               </a>
             </p>
+            <button
+              aria-label="Continuer avec github"
+              role="button"
+              class="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full"
+            >
+              <img
+                src="/github-mark.svg"
+                alt="github"
+                width={25}
+              />
+              <p class="text-base font-medium ml-4 text-gray-700">
+                Connexion avec GitHub
+              </p>
+            </button>
+            <div class="w-full flex items-center justify-between py-5 z-50">
+              <hr class="w-full bg-black h-0.5" />
+              <p class="text-base font-medium leading-4 px-2.5 text-black">
+                OU
+              </p>
+              <hr class="w-full bg-black h-0.5" />
+            </div>
             <form className="column  max-w-5xl">
               <label
                 htmlFor="email"
