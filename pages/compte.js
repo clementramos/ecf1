@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "/components/Header";
 import Footer from "/components/Footer";
 import { signOut, useSession } from "next-auth/react";
+import Router from "next/router";
 
 const ProfilePage = () => {
   const { data: session, status } = useSession();
@@ -87,7 +88,7 @@ const ProfilePage = () => {
               <button
                 type="button"
                 className="rounded-full text-xl border-2 border-yellow-ecf bg-white px-8 py-2 font-bold text-yellow-ecf hover:bg-yellow-ecf hover:text-white focus:bg-yellow-ecf focus:text-white"
-                onClick={() => signOut().then(() => router.push("/#"))}
+                onClick={() => signOut().then(() => Router.push("/"))}
               >
                 Se déconnecter
               </button>
