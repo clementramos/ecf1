@@ -37,10 +37,10 @@ const Menus: React.FC<Props> = (props) => {
             className="mx-auto sm:px-5"
             loading="eager"
           />
-          <div className="flex justify-center">
-            <div className="w-3/4 bg-black">
+          <div className="flex justify-center ">
+            <div className="w-11/12 bg-black">
               <p className="text-white text-center text-4xl pt-5 pb-10">Menus : </p>
-              <div className="">
+              <div className="grid grid-cols-2 gap-10">
                 {props.feed.map((post) => (
                   <div key={post.id} className="rounded-lg shadow-lg border border-yellow-ecf shadow-yellow-ecf items-center text-white text-2xl cursor-pointer mb-12">
                     <Post post={post} />

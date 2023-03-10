@@ -30,6 +30,13 @@ async function publishPost(id: string): Promise<void> {
   await Router.push("/menus");
 }
 
+async function deletePost(id: string): Promise<void> {
+  await fetch(`/api/post/${id}`, {
+    method: "DELETE",
+  });
+  Router.push("/menus");
+}
+
 const Post: React.FC<PostProps> = (props) => {
   const { data: session, status } = useSession();
   if (status === "loading") {
@@ -77,13 +84,21 @@ const Post: React.FC<PostProps> = (props) => {
             <p className="text-white text-xl text-left p-2">
               Prix : {props.price}{" "}
             </p>
-            <div className="text-center">
+            <div className="text-center grid grid-cols-2 gap-5">
               {!props.published && userHasValidSession && postBelongsToUser && (
                 <button
                   onClick={() => publishPost(props.id)}
                   className="text-white mx-auto rounded border p-2 border-yellow-ecf text-2xl hover:shadow-lg hover:shadow-yellow-ecf"
                 >
                   Publier le menu
+                </button>
+              )}
+              {userHasValidSession && postBelongsToUser && (
+                <button
+                  onClick={() => deletePost(props.id)}
+                  className="text-white mx-auto rounded border p-2 border-red-ecf text-2xl hover:shadow-lg hover:shadow-red-ecf"
+                >
+                  Supprimer le menu
                 </button>
               )}
             </div>
