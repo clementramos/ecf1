@@ -45,7 +45,7 @@ const ProfilePage = () => {
                 href="/drafts"
                 className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
               >
-                Mes boruillons
+                Mes brouillons
               </Link>
             </div>
 
