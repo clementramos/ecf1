@@ -14,7 +14,7 @@ export default async function handle(req, res) {
     data: {
       title: title,
       content: content,
-      price: price,
+      price: 'price',
       author: { connect: { email: session?.user?.email } },
     },
   });
