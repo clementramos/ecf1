@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import prisma from "../lib/prisma";
 import React from "react";
 import Post, { PostProps } from "../components/Post";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -26,9 +26,9 @@ type Props = {
 const Menus: React.FC<Props> = (props) => {
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="bg-black">
-        <main className="bg-black pt-24 h-screen">
+        <main className="bg-black pt-24 pb-24 h-full">
           <img
             src="/logonobg.png"
             alt="programme"
@@ -38,11 +38,11 @@ const Menus: React.FC<Props> = (props) => {
             loading="eager"
           />
           <div className="flex justify-center">
-            <div className="w-1/2 bg-red-ecf rounded-lg shadow shadow-white items-center">
-              <p className="text-white text-center text-4xl pt-5">Menus : </p>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="w-3/4 bg-black">
+              <p className="text-white text-center text-4xl pt-5 pb-10">Menus : </p>
+              <div className="">
                 {props.feed.map((post) => (
-                  <div key={post.id} className="text-white text-2xl cursor-pointer">
+                  <div key={post.id} className="rounded-lg shadow-lg border border-yellow-ecf shadow-yellow-ecf items-center text-white text-2xl cursor-pointer mb-12">
                     <Post post={post} />
                   </div>
                 ))}

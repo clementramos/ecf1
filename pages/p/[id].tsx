@@ -1,8 +1,11 @@
+import React from "react";
 import { GetServerSideProps } from "next";
-import prisma from "../../lib/prisma";
-import { PostProps } from "../../components/Post";
 import ReactMarkdown from "react-markdown";
-import Navbar from "../../components/Navbar";
+import Router from "next/router";
+import Header from "../../components/Header";
+import { PostProps } from "../../components/Post";
+import { useSession } from "next-auth/react";
+import prisma from "../../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const post = await prisma.post.findUnique({
@@ -11,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
     include: {
       author: {
-        select: { name: true },
+        select: { name: true, email: true },
       },
     },
   });
@@ -20,15 +23,37 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
+async function publishPost(id: string): Promise<void> {
+  await fetch(`/api/publish/${id}`, {
+    method: "PUT",
+  });
+  await Router.push("/menus");
+}
+
 const Post: React.FC<PostProps> = (props) => {
+  const { data: session, status } = useSession();
+  if (status === "loading") {
+    return (
+      <>
+        <Header />
+        <div className="bg-black h-screen">
+          <p className="text-center text-2xl p-96 text-white">
+            En cours de connexion, merci de patienter...
+          </p>
+        </div>
+      </>
+    );
+  }
+  const userHasValidSession = Boolean(session);
+  const postBelongsToUser = session?.user?.email === props.author?.email;
   let title = props.title;
   if (!props.published) {
-    title = `${title} (Draft)`;
+    title = `${title} (Brouillon)`;
   }
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="bg-black h-screen">
         <img
           src="/logonobg.png"
@@ -39,15 +64,37 @@ const Post: React.FC<PostProps> = (props) => {
           loading="eager"
         />
         <div className="flex justify-center">
-          <div className="w-1/2 bg-red-ecf rounded-lg shadow shadow-white items-center pb-2">
+          <div className="w-1/2 bg-black rounded-lg shadow-lg shadow-yellow-ecf border border-yellow-ecf items-center pb-2">
             <p className="text-white text-center text-4xl pt-5">{title}</p>
-            <p className="font-thin text-sm text-white text-left pl-2 pb-5">
-              Par : {props?.author?.name || "Unknown author"}
+            <p className="font-thin text-sm text-white text-center p-2">
+              Par : {props?.author?.name || "Auteur inconnu"}
             </p>
-            <ReactMarkdown children={props.content} />
-            <a href="/menus" className="text-white italic p-2 underline">
-            &lt;- Retour aux menus
-            </a>
+            <ReactMarkdown
+              children={props.content}
+              className="text-white p-2"
+            />
+
+            <p className="text-white text-xl text-left p-2">
+              Prix : {props.price}{" "}
+            </p>
+            <div className="text-center">
+              {!props.published && userHasValidSession && postBelongsToUser && (
+                <button
+                  onClick={() => publishPost(props.id)}
+                  className="text-white mx-auto rounded border p-2 border-yellow-ecf text-2xl hover:shadow-lg hover:shadow-yellow-ecf"
+                >
+                  Publier le menu
+                </button>
+              )}
+            </div>
+            <div className="text-center pt-5">
+              <a
+                href="/menus"
+                className="text-red-ecf text-lg italic p-2 b-5 underline"
+              >
+                &lt;- Retour aux menus
+              </a>
+            </div>
           </div>
         </div>
       </div>
