@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Header from "./Header";
 
@@ -57,6 +56,8 @@ export default function Hero() {
             <p className="uppercase text-center sm:text-5xl text-xl w-full text-white">
               {text}
             </p>
+          </div>
+          <div>
           </div>
           <div id="contact" className="pt-20 h-full bg-black">
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 grid grid-cols-1 gap-4">

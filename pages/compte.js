@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Header from "/components/Header";
-import Footer from "/components/Footer";
 import { signOut, useSession } from "next-auth/react";
 import Router from "next/router";
 
@@ -25,7 +24,7 @@ const ProfilePage = () => {
               Bonjour, {session.user.name} !
             </p>
             <p className="rounded-lg bg-gray-300 p-2 text-2xl w-fit mx-auto font-mono">
-              {session.user.email} - ADMIN
+              {session.user.email} - type de compte : {session.user.role}
             </p>
             <p className="text-white text-3xl pt-5 underline">Accès rapide :</p>
             <div className="grid grid-cols-3 gap-4 pt-5">
@@ -66,9 +65,8 @@ const ProfilePage = () => {
                 <input
                   className="text-orange-400 "
                   value="OUI"
-                  required
                   type="radio"
-                  name=""
+                  name="allergies"
                   id="txtEmail"
                   placeholder="example@mail.com"
                 />{" "}
@@ -76,9 +74,8 @@ const ProfilePage = () => {
                 <input
                   className="text-orange-400 ml-5"
                   value="Non"
-                  required
                   type="radio"
-                  name=""
+                  name="allergies"
                   id="txtEmail"
                   placeholder="example@mail.com"
                 />{" "}
@@ -93,7 +90,7 @@ const ProfilePage = () => {
                   type="number"
                   class="mb-10 peer block min-h-[auto] mx-auto w-fit rounded border-0 bg-white text-black py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                   id="exampleFormControlInputText"
-                  value="1"
+                  placeholder="1"
                   min={1}
                   max={10}
                 />
