@@ -27,7 +27,13 @@ const ProfilePage = () => {
               {session.user.email} - type de compte : {session.user.role}
             </p>
             <p className="text-white text-3xl pt-5 underline">Accès rapide :</p>
-            <div className="grid grid-cols-3 gap-4 pt-5">
+            <div className="grid grid-cols-4 gap-4 pt-5">
+              <Link
+                href="addPictures"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Ajouter des photos
+              </Link>
               <Link
                 href="create"
                 className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
