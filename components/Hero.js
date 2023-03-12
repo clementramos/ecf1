@@ -1,8 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Images from "./Images";
 import Header from "./Header";
 
 const variants = {
