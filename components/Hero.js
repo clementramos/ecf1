@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Navbar from "./Navbar";
+import Images from "./Images";
 import Header from "./Header";
 
 const variants = {
@@ -58,6 +58,7 @@ export default function Hero() {
             </p>
           </div>
           <div>
+            <Images />
           </div>
           <div id="contact" className="pt-20 h-full bg-black">
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 grid grid-cols-1 gap-4">

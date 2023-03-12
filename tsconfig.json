@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/_app.js", "utils/cloudinary.js"  ],
+, "pages/_app.js", "utils/cloudinary.js", "pages/addPictures.js"  ],
   "exclude": [
     "node_modules"
   ],
