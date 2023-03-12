@@ -1,38 +1,45 @@
-import Image from "next/image"
-import images from "../images"
+import Image from "next/image";
+import Header from "../components/Header";
 
-export default function Images({ images }) {
-  console.log('images', images)
+export default function Home({ images }) {
   return (
     <>
-      <h1 className="sr-only">My Images</h1>
-      <h2>Folders</h2>
-      <h2 className>Images</h2>
-      <ul className>
-        {images?.map(image => {
-          return (
-            <li key={image.id}>
-              <a href={image.link} rel="noreferrer">
-                <div className>
-                  <Image
-                    width={image.width}
-                    height={image.height}
-                    src={image.image}
-                    alt=""
-                  />
-                </div>
-                <h3 className>{image.title}</h3>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+      <Header />
+      <div className="h-full bg-black p-10">
+        <h1 className="sr-only">Gallerie :</h1>
+        <h2 className="text-4xl font-bold text-center text-white pt-24">
+          Galerie :
+        </h2>
+        <ul className="grid grid-cols-3 gap-5 pt-10">
+          {images.map((image) => {
+            return (
+              <li key={image.id}>
+                <a href={image.link} rel="noreferrer">
+                  <div className="block">
+                    <Image
+                      width={image.width}
+                      height={image.width}
+                      src={image.image}
+                      alt=""
+                    />
+                  </div>
+                  <h3 className="m-2 text-xl text-black hover:text-white">
+                    {image.title}
+                  </h3>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="flex justify-center items-center ">
+          <button className="text-xl font-bold w-auto py-2 px-5 border-white border border-white rounded text-white bg-transparent hover:shadow-xl hover:shadow-yellow-ecf"><a href="/">Retour à la page principale</a></button>
+        </div>
+      </div>
     </>
   );
 }
 
-async function handleOnLoadMore(e) {
-  e.preventDefault();
+export async function getStaticProps() {
   const results = await fetch(
     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image`,
     {
@@ -60,9 +67,6 @@ async function handleOnLoadMore(e) {
   return {
     props: {
       images,
-      nextCursor,
-      totalCount,
-      folders
-    }
-  }
+    },
+  };
 }

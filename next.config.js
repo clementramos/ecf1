@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   // webpack: (config, { isServer }) => {
   //   // Fixes npm packages that depend on `fs` module
   //   if (!isServer) {
