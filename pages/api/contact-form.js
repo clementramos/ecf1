@@ -13,7 +13,7 @@ const mailConfig = {
     }
 }
 
-const adminEmail = 'The Webmaster <example@gmail.com>';
+const adminEmail = 'The Webmaster <ramos.clementskype@gmail.com>';
 
 // Function for grabbing template files
 async function getPubFile(file) {
@@ -43,12 +43,18 @@ async function sendEmails(req, res) {
     let sendHtml = template.replace("%BODY%", custHtml)
         .replace("%NAME%", req.body.name)
         .replace("%EMAIL%", req.body.email)
-        .replace("%MESSAGE%", req.body.message);
+        .replace("%DATE%", req.body.date)
+        .replace("%HOUR%", req.body.hour)
+        .replace("%COUVERTS%", req.body.couverts)
+        .replace("%ALLERGIES%", req.body.radioGroup);
 
     let sendTxt = custTxt
         .replace("%NAME%", req.body.name)
         .replace("%EMAIL%", req.body.email)
-        .replace("%MESSAGE%", req.body.message);
+        .replace("%DATE%", req.body.date)
+        .replace("%HOUR%", req.body.hour)
+        .replace("%COUVERTS%", req.body.couverts)
+        .replace("%ALLERGIES%", req.body.radioGroup);
 
     // Send our customer-bound email
     let info = await transporter.sendMail({
@@ -67,12 +73,18 @@ async function sendEmails(req, res) {
     sendHtml = template.replace("%BODY%", adminHtml)
         .replace("%NAME%", req.body.name)
         .replace("%EMAIL%", req.body.email)
-        .replace("%MESSAGE%", req.body.message);
+        .replace("%DATE%", req.body.date)
+        .replace("%HOUR%", req.body.hour)
+        .replace("%COUVERTS%", req.body.couverts)
+        .replace("%ALLERGIES%", req.body.radioGroup);
 
     sendTxt = adminTxt
         .replace("%NAME%", req.body.name)
         .replace("%EMAIL%", req.body.email)
-        .replace("%MESSAGE%", req.body.message);
+        .replace("%DATE%", req.body.date)
+        .replace("%HOUR%", req.body.hour)
+        .replace("%COUVERTS%", req.body.couverts)
+        .replace("%ALLERGIES%", req.body.radioGroup);
 
     info = await transporter.sendMail({
         from: recipEmail,
