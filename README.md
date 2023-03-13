@@ -1,6 +1,6 @@
 # Diagramme de séquence pour la réservation d'une table
 
-    L'utilisateur accède à la page de réservation sur le site web.
+   L'utilisateur accède à la page de réservation sur le site web.
     Le système affiche les tables disponibles pour la date et l'heure sélectionnées.
     L'utilisateur choisit une table et sélectionne le nombre de personnes.
     L'utilisateur fournit ses informations de contact et ajoute des commentaires ou des demandes spéciales.
@@ -8,7 +8,7 @@
 
 # Diagramme de séquence pour la modification d'une réservation
 
-    L'utilisateur accède à la page de gestion des réservations sur le site web.
+   L'utilisateur accède à la page de gestion des réservations sur le site web.
     Le système affiche les réservations en cours pour l'utilisateur.
     L'utilisateur choisit la réservation qu'il souhaite modifier.
     L'utilisateur modifie les détails de la réservation, tels que la date et l'heure ou le nombre de personnes.
@@ -16,14 +16,14 @@
     
 # Diagramme de séquence pour la modification des horaires d'ouverture
 
-    L'administrateur accède à la page de gestion des horaires sur le site web.
+   L'administrateur accède à la page de gestion des horaires sur le site web.
     Le système affiche les horaires d'ouverture actuels pour le restaurant.
     L'administrateur modifie les horaires d'ouverture pour un jour de la semaine spécifique ou pour un jour férié ou un événement spécial.
     Le système met à jour les horaires d'ouverture et les affiche sur le site web.
 
 # Diagramme de séquence pour la modification des menus
 
-    L'administrateur accède à la page de gestion des menus sur le site web.
+   L'administrateur accède à la page de gestion des menus sur le site web.
     Le système affiche les menus actuels pour le restaurant.
     L'administrateur ajoute, supprime ou modifie un plat du menu.
     Le système met à jour le menu et l'affiche sur le site web.
