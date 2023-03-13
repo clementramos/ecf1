@@ -1,3 +1,23 @@
+# Diagramme de classe pour les utilisateurs
+
+La classe User représente un utilisateur du site web de restaurant. Chaque utilisateur a un identifiant unique, une adresse e-mail et un mot de passe. La classe contient également des méthodes pour la gestion des réservations et des messages.
+
+# Diagramme de classe pour les réservations
+
+La classe Reservation représente une réservation de table dans le restaurant. Chaque réservation a un identifiant unique, une date et une heure, le nombre de personnes et des commentaires ou des demandes spéciales. La classe contient également des références à l'utilisateur qui a effectué la réservation et à la table réservée.
+
+# Diagramme de classe pour les tables
+
+La classe Table représente une table dans le restaurant. Chaque table a un identifiant unique, un numéro et un nombre de places. La classe contient également des références aux réservations associées à cette table.
+
+# Diagramme de classe pour les messages
+
+La classe Message représente un message envoyé depuis le site web de restaurant. Chaque message a un identifiant unique, un sujet, un contenu et une date d'envoi. La classe contient également des références à l'utilisateur qui a envoyé le message et à l'administrateur qui l'a reçu.
+
+# Diagramme de classe pour les menus
+
+La classe Menu représente un menu de plat pour le restaurant. Chaque menu a un identifiant unique, un nom, une description et un prix. La classe contient également des références aux plats individuels qui composent le menu. La classe Dish représente un plat individuel sur le menu du restaurant. Chaque plat a un identifiant unique, un nom, une description et un prix.
+
 # Diagramme de séquence pour la réservation d'une table
 
    L'utilisateur accède à la page de réservation sur le site web.
