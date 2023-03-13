@@ -11,7 +11,7 @@ export default function Home({ images }) {
           Galerie :
         </h2>
         <ul className="grid grid-cols-3 gap-5 pt-10">
-          {images?.map((image) => {
+          {images.map((image) => {
             return (
               <li key={image.id}>
                 <a href={image.link} rel="noreferrer">
