@@ -98,27 +98,30 @@ License
 # This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-Diagramme de cas d'utilisation de l'utilisateur
+# Diagramme de cas d'utilisation de l'utilisateur
 
-Diagramme de cas d'utilisation de l'utilisateur
-Consulter les menus
+### Consulter les menus
 
 L'utilisateur peut consulter les menus disponibles du restaurant en naviguant sur le site web. Les menus sont organisés par catégories et affichent les prix et les descriptions des plats.
-Effectuer une réservation
+
+### Effectuer une réservation
 
 L'utilisateur peut effectuer une réservation pour une date et une heure spécifiques. Il peut choisir le nombre de personnes, sélectionner une table et ajouter des commentaires ou des demandes spéciales. L'utilisateur doit s'inscrire ou se connecter au site pour effectuer une réservation.
-Contacter le restaurant
+
+### Contacter le restaurant
 
 L'utilisateur peut contacter le restaurant pour poser des questions ou demander des informations supplémentaires. Il peut envoyer un message à l'aide d'un formulaire de contact ou appeler le restaurant directement.
-Diagramme de cas d'utilisation de l'administrateur
 
-Diagramme de cas d'utilisation de l'administrateur
-Modifier les menus
+# Diagramme de cas d'utilisation de l'administrateur
+
+### Modifier les menus
 
 L'administrateur peut modifier les menus proposés par le restaurant. Il peut ajouter, supprimer ou modifier des plats, ainsi que modifier les descriptions et les prix. Les modifications sont automatiquement reflétées sur le site web.
-Modifier les horaires d'ouverture
+
+### Modifier les horaires d'ouverture
 
 L'administrateur peut modifier les horaires d'ouverture du restaurant. Il peut définir les heures d'ouverture pour chaque jour de la semaine, ainsi que les heures de fermeture pour les jours fériés et les événements spéciaux. Les modifications sont automatiquement reflétées sur le site web.
-Gérer les réservations
+
+### Gérer les réservations
 
 L'administrateur peut gérer les réservations effectuées par les clients. Il peut voir les réservations en cours, modifier ou annuler des réservations existantes et ajouter des réservations manuellement. Les modifications sont automatiquement reflétées sur le site web.
