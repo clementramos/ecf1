@@ -1,7 +1,8 @@
-ECF1 - E-commerce website for a restaurant
+# ECF1 - E-commerce website for a restaurant
 
 This is an evaluation project that consists of creating an e-commerce website for a restaurant using Next.js, Tailwind, and Prisma.
-Installation
+
+# Installation
 
 To run this project on your local machine, follow the steps below:
 
@@ -13,13 +14,9 @@ git clone https://github.com/clementramos/ecf1.git
 
 Navigate to the project directory
 
-bash
-
 cd ecf1
 
 Install the dependencies
-
-bash
 
 npm install
 # or
@@ -27,15 +24,13 @@ yarn
 
 Start the development server
 
-bash
-
     npm run dev
     # or
     yarn dev
 
     Visit http://localhost:3000 in your browser to view the project.
 
-Technologies Used
+# Technologies Used
 
 This project uses the following technologies:
 
@@ -43,11 +38,10 @@ This project uses the following technologies:
     Tailwind CSS
     Prisma
 
-Project Structure
+# Project Structure
 
 The project structure is as follows:
 
-java
 
 ecf1/
 ├── components/
@@ -85,7 +79,7 @@ ecf1/
     prisma: This directory contains the Prisma database schema and migrations.
     package.json: This file contains the project dependencies and scripts.
 
-Functionality
+# Functionality
 
 This e-commerce website for a restaurant allows users to:
 
@@ -96,9 +90,9 @@ This e-commerce website for a restaurant allows users to:
     Remove products from their cart
     Place an order
 
-Contributing
+# Contributing
 
 This is an evaluation project and contributions are not accepted.
 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+# This project is licensed under the MIT License - see the LICENSE file for details.
