@@ -1,3 +1,25 @@
+# Couleurs
+
+    Principale: #FBBF24 (jaune-orangé)
+    Secondaire: #1F2937 (gris foncé)
+    Accent: #10B981 (vert)
+
+# Typographie
+
+    Titres: Poppins, sans-serif
+    Corps de texte: Open Sans, sans-serif
+
+# Mise en page
+
+    Le design est simple, épuré et moderne, avec une utilisation minimaliste de la couleur et une typographie claire et facile à lire.
+    Les boutons ont un arrière-plan jaune-orangé et un texte blanc, avec des bordures arrondies.
+    Les images sont utilisées pour illustrer les plats du menu et les photos du restaurant.
+    Le site utilise une mise en page responsive pour assurer une expérience utilisateur cohérente sur toutes les tailles d'écran.
+
+# Logo
+
+Le logo du restaurant est un dessin simple d'une fourchette et d'un couteau en noir sur un cercle jaune-orangé. Le nom du restaurant apparaît en dessous, en utilisant la typographie Poppins.
+
 # Diagramme de classe pour les utilisateurs
 
 La classe User représente un utilisateur du site web de restaurant. Chaque utilisateur a un identifiant unique, une adresse e-mail et un mot de passe. La classe contient également des méthodes pour la gestion des réservations et des messages.
