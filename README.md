@@ -1,101 +1,32 @@
-# ECF1 - E-commerce website for a restaurant
+# Diagramme de séquence pour la réservation d'une table
 
-This is an evaluation project that consists of creating an e-commerce website for a restaurant using Next.js, Tailwind, and Prisma.
+    L'utilisateur accède à la page de réservation sur le site web.
+    Le système affiche les tables disponibles pour la date et l'heure sélectionnées.
+    L'utilisateur choisit une table et sélectionne le nombre de personnes.
+    L'utilisateur fournit ses informations de contact et ajoute des commentaires ou des demandes spéciales.
+    Le système enregistre la réservation et envoie un e-mail de confirmation à l'utilisateur.
 
-# Installation
+# Diagramme de séquence pour la modification d'une réservation
 
-To run this project on your local machine, follow the steps below:
+    L'utilisateur accède à la page de gestion des réservations sur le site web.
+    Le système affiche les réservations en cours pour l'utilisateur.
+    L'utilisateur choisit la réservation qu'il souhaite modifier.
+    L'utilisateur modifie les détails de la réservation, tels que la date et l'heure ou le nombre de personnes.
+    Le système met à jour la réservation et envoie un e-mail de confirmation à l'utilisateur.
+    
+# Diagramme de séquence pour la modification des horaires d'ouverture
 
-    Clone the repository
+    L'administrateur accède à la page de gestion des horaires sur le site web.
+    Le système affiche les horaires d'ouverture actuels pour le restaurant.
+    L'administrateur modifie les horaires d'ouverture pour un jour de la semaine spécifique ou pour un jour férié ou un événement spécial.
+    Le système met à jour les horaires d'ouverture et les affiche sur le site web.
 
-    bash
+# Diagramme de séquence pour la modification des menus
 
-git clone https://github.com/clementramos/ecf1.git
-
-Navigate to the project directory
-
-cd ecf1
-
-Install the dependencies
-
-npm install
-# or
-yarn
-
-Start the development server
-
-    npm run dev
-    # or
-    yarn dev
-
-    Visit http://localhost:3000 in your browser to view the project.
-
-# Technologies Used
-
-This project uses the following technologies:
-
-    Next.js
-    Tailwind CSS
-    Prisma
-
-# Project Structure
-
-The project structure is as follows:
-
-
-ecf1/
-├── components/
-│   ├── Cart/
-│   ├── Footer/
-│   ├── Header/
-│   ├── Product/
-│   ├── ProductList/
-│   └── ...
-├── pages/
-│   ├── api/
-│   ├── cart.js
-│   ├── index.js
-│   ├── products/
-│   ├── _app.js
-│   └── ...
-├── public/
-│   ├── images/
-│   └── ...
-├── styles/
-│   ├── globals.css
-│   └── ...
-├── .env
-├── .env.local
-├── prisma/
-├── package.json
-└── ...
-
-    components: This directory contains all the reusable components used in the project.
-    pages: This directory contains all the pages of the application.
-    public: This directory contains all the static assets used in the project.
-    styles: This directory contains the global CSS styles used in the project.
-    .env: This file contains the environment variables used in production.
-    .env.local: This file contains the environment variables used in development.
-    prisma: This directory contains the Prisma database schema and migrations.
-    package.json: This file contains the project dependencies and scripts.
-
-# Functionality
-
-This e-commerce website for a restaurant allows users to:
-
-    Browse a list of available products
-    Add products to a cart
-    View their cart
-    Increase or decrease the quantity of products in their cart
-    Remove products from their cart
-    Place an order
-
-# Contributing
-
-This is an evaluation project and contributions are not accepted.
-License
-
-# This project is licensed under the MIT License - see the LICENSE file for details.
+    L'administrateur accède à la page de gestion des menus sur le site web.
+    Le système affiche les menus actuels pour le restaurant.
+    L'administrateur ajoute, supprime ou modifie un plat du menu.
+    Le système met à jour le menu et l'affiche sur le site web.
 
 
 # Diagramme de cas d'utilisation de l'utilisateur
