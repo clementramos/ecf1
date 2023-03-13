@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Couleurs
 
-## Getting Started
+    Principale: #FBBF24 (jaune-orangé)
+    Secondaire: #1F2937 (gris foncé)
+    Accent: #10B981 (vert)
 
-First, run the development server:
+# Typographie
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    Titres: Poppins, sans-serif
+    Corps de texte: Open Sans, sans-serif
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Mise en page
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+    Le design est simple, épuré et moderne, avec une utilisation minimaliste de la couleur et une typographie claire et facile à lire.
+    Les boutons ont un arrière-plan jaune-orangé et un texte blanc, avec des bordures arrondies.
+    Les images sont utilisées pour illustrer les plats du menu et les photos du restaurant.
+    Le site utilise une mise en page responsive pour assurer une expérience utilisateur cohérente sur toutes les tailles d'écran.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Logo
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Le logo du restaurant est un dessin simple d'une fourchette et d'un couteau en noir sur un cercle jaune-orangé. Le nom du restaurant apparaît en dessous, en utilisant la typographie Poppins.
 
-## Learn More
+# Diagramme de classe pour les utilisateurs
 
-To learn more about Next.js, take a look at the following resources:
+La classe User représente un utilisateur du site web de restaurant. Chaque utilisateur a un identifiant unique, une adresse e-mail et un mot de passe. La classe contient également des méthodes pour la gestion des réservations et des messages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Diagramme de classe pour les réservations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+La classe Reservation représente une réservation de table dans le restaurant. Chaque réservation a un identifiant unique, une date et une heure, le nombre de personnes et des commentaires ou des demandes spéciales. La classe contient également des références à l'utilisateur qui a effectué la réservation et à la table réservée.
 
-## Deploy on Vercel
+# Diagramme de classe pour les tables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La classe Table représente une table dans le restaurant. Chaque table a un identifiant unique, un numéro et un nombre de places. La classe contient également des références aux réservations associées à cette table.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Diagramme de classe pour les messages
+
+La classe Message représente un message envoyé depuis le site web de restaurant. Chaque message a un identifiant unique, un sujet, un contenu et une date d'envoi. La classe contient également des références à l'utilisateur qui a envoyé le message et à l'administrateur qui l'a reçu.
+
+# Diagramme de classe pour les menus
+
+La classe Menu représente un menu de plat pour le restaurant. Chaque menu a un identifiant unique, un nom, une description et un prix. La classe contient également des références aux plats individuels qui composent le menu. La classe Dish représente un plat individuel sur le menu du restaurant. Chaque plat a un identifiant unique, un nom, une description et un prix.
+
+# Diagramme de séquence pour la réservation d'une table
+
+   L'utilisateur accède à la page de réservation sur le site web.
+   Le système affiche les tables disponibles pour la date et l'heure sélectionnées.
+   L'utilisateur choisit une table et sélectionne le nombre de personnes.
+   L'utilisateur fournit ses informations de contact et ajoute des commentaires ou des demandes spéciales.
+   Le système enregistre la réservation et envoie un e-mail de confirmation à l'utilisateur.
+
+# Diagramme de séquence pour la modification d'une réservation
+
+   L'utilisateur accède à la page de gestion des réservations sur le site web.
+   Le système affiche les réservations en cours pour l'utilisateur.
+   L'utilisateur choisit la réservation qu'il souhaite modifier.
+   L'utilisateur modifie les détails de la réservation, tels que la date et l'heure ou le nombre de personnes.
+   Le système met à jour la réservation et envoie un e-mail de confirmation à l'utilisateur.
+    
+# Diagramme de séquence pour la modification des horaires d'ouverture
+
+   L'administrateur accède à la page de gestion des horaires sur le site web.
+   Le système affiche les horaires d'ouverture actuels pour le restaurant.
+   L'administrateur modifie les horaires d'ouverture pour un jour de la semaine spécifique ou pour un jour férié ou un événement spécial.
+   Le système met à jour les horaires d'ouverture et les affiche sur le site web.
+
+# Diagramme de séquence pour la modification des menus
+
+   L'administrateur accède à la page de gestion des menus sur le site web.
+   Le système affiche les menus actuels pour le restaurant.
+   L'administrateur ajoute, supprime ou modifie un plat du menu.
+   Le système met à jour le menu et l'affiche sur le site web.
+
+
+# Diagramme de cas d'utilisation de l'utilisateur
+
+### Consulter les menus
+
+L'utilisateur peut consulter les menus disponibles du restaurant en naviguant sur le site web. Les menus sont organisés par catégories et affichent les prix et les descriptions des plats.
+
+### Effectuer une réservation
+
+L'utilisateur peut effectuer une réservation pour une date et une heure spécifiques. Il peut choisir le nombre de personnes, sélectionner une table et ajouter des commentaires ou des demandes spéciales. L'utilisateur doit s'inscrire ou se connecter au site pour effectuer une réservation.
+
+### Contacter le restaurant
+
+L'utilisateur peut contacter le restaurant pour poser des questions ou demander des informations supplémentaires. Il peut envoyer un message à l'aide d'un formulaire de contact ou appeler le restaurant directement.
+
+# Diagramme de cas d'utilisation de l'administrateur
+
+### Modifier les menus
+
+L'administrateur peut modifier les menus proposés par le restaurant. Il peut ajouter, supprimer ou modifier des plats, ainsi que modifier les descriptions et les prix. Les modifications sont automatiquement reflétées sur le site web.
+
+### Modifier les horaires d'ouverture
+
+L'administrateur peut modifier les horaires d'ouverture du restaurant. Il peut définir les heures d'ouverture pour chaque jour de la semaine, ainsi que les heures de fermeture pour les jours fériés et les événements spéciaux. Les modifications sont automatiquement reflétées sur le site web.
+
+### Gérer les réservations
+
+L'administrateur peut gérer les réservations effectuées par les clients. Il peut voir les réservations en cours, modifier ou annuler des réservations existantes et ajouter des réservations manuellement. Les modifications sont automatiquement reflétées sur le site web.
