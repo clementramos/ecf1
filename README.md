@@ -1,34 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ECF1 - E-commerce website for a restaurant
 
-## Getting Started
+This is an evaluation project that consists of creating an e-commerce website for a restaurant using Next.js, Tailwind, and Prisma.
+Installation
 
-First, run the development server:
+To run this project on your local machine, follow the steps below:
 
-```bash
-npm run dev
+    Clone the repository
+
+    bash
+
+git clone https://github.com/clementramos/ecf1.git
+
+Navigate to the project directory
+
+bash
+
+cd ecf1
+
+Install the dependencies
+
+bash
+
+npm install
 # or
-yarn dev
-```
+yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the development server
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+bash
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    npm run dev
+    # or
+    yarn dev
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+    Visit http://localhost:3000 in your browser to view the project.
 
-## Learn More
+Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+This project uses the following technologies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Next.js
+    Tailwind CSS
+    Prisma
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Project Structure
 
-## Deploy on Vercel
+The project structure is as follows:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+java
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ecf1/
+├── components/
+│   ├── Cart/
+│   ├── Footer/
+│   ├── Header/
+│   ├── Product/
+│   ├── ProductList/
+│   └── ...
+├── pages/
+│   ├── api/
+│   ├── cart.js
+│   ├── index.js
+│   ├── products/
+│   ├── _app.js
+│   └── ...
+├── public/
+│   ├── images/
+│   └── ...
+├── styles/
+│   ├── globals.css
+│   └── ...
+├── .env
+├── .env.local
+├── prisma/
+├── package.json
+└── ...
+
+    components: This directory contains all the reusable components used in the project.
+    pages: This directory contains all the pages of the application.
+    public: This directory contains all the static assets used in the project.
+    styles: This directory contains the global CSS styles used in the project.
+    .env: This file contains the environment variables used in production.
+    .env.local: This file contains the environment variables used in development.
+    prisma: This directory contains the Prisma database schema and migrations.
+    package.json: This file contains the project dependencies and scripts.
+
+Functionality
+
+This e-commerce website for a restaurant allows users to:
+
+    Browse a list of available products
+    Add products to a cart
+    View their cart
+    Increase or decrease the quantity of products in their cart
+    Remove products from their cart
+    Place an order
+
+Contributing
+
+This is an evaluation project and contributions are not accepted.
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
