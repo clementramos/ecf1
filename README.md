@@ -1,3 +1,17 @@
+# ECF - Projet restaurant, "Le Quai Antique"
+## Table des matières : 
+1. [Set-up](#setup)
+2. [Charte Graphique](#charte)
+3. [Documentation](#documentation)
+
+<a name="setup"></a>
+> ### Mise en production (local) :
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/clementramos/ecf1)
+
+
+<a name="charte"></a>
+> ### Charte graphique :
 ![Le Quai Antique](https://user-images.githubusercontent.com/81080837/225022197-e1e736ab-7a6f-4866-9f01-5a44f58f3ee9.png)
 
 
