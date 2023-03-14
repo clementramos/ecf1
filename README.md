@@ -1,13 +1,5 @@
-# Couleurs
+![Le Quai Antique](https://user-images.githubusercontent.com/81080837/225022197-e1e736ab-7a6f-4866-9f01-5a44f58f3ee9.png)
 
-    Principale: #FBBF24 (jaune-orangé)
-    Secondaire: #1F2937 (gris foncé)
-    Accent: #10B981 (vert)
-
-# Typographie
-
-    Titres: Poppins, sans-serif
-    Corps de texte: Open Sans, sans-serif
 
 # Mise en page
 
