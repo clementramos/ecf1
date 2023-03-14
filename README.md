@@ -1,100 +1,88 @@
-# Couleurs
+# ECF - Projet restaurant, "Le Quai Antique"
+## Table des matières : 
+1. [Set-up](#setup)
+2. [Création d'un profil ADMIN](#admin)
+3. [Scripts SQL](#sql)
+4. [Charte Graphique](#charte)
+5. [Mise en page](#page)
+6. [Logos](#logos)
+7. [Documentation](#documentation)
 
-    Principale: #FBBF24 (jaune-orangé)
-    Secondaire: #1F2937 (gris foncé)
-    Accent: #10B981 (vert)
+<a name="setup"></a>
+> ### Déploiement en local :
 
-# Typographie
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/clementramos/ecf1)
 
-    Titres: Poppins, sans-serif
-    Corps de texte: Open Sans, sans-serif
+Ou
 
-# Mise en page
+```
+npx create-next-app --example https://github.com/clementramos/ecf1 ECF
+# ou
+yarn create next-app --example https://github.com/clementramos/ecf1 ECF
+```
+##### Remplacez les variables d'environnement
 
-    Le design est simple, épuré et moderne, avec une utilisation minimaliste de la couleur et une typographie claire et facile à lire.
-    Les boutons ont un arrière-plan jaune-orangé et un texte blanc, avec des bordures arrondies.
-    Les images sont utilisées pour illustrer les plats du menu et les photos du restaurant.
-    Le site utilise une mise en page responsive pour assurer une expérience utilisateur cohérente sur toutes les tailles d'écran.
+###### Ensuite, installez les modules et lancer le serveur
 
-# Logo
+```bash
+npm install
+npm run dev
 
-Le logo du restaurant est un dessin simple d'une fourchette et d'un couteau en noir sur un cercle jaune-orangé. Le nom du restaurant apparaît en dessous, en utilisant la typographie Poppins.
+# ou
 
-# Diagramme de classe pour les utilisateurs
+yarn
+yarn dev
+```
 
-La classe User représente un utilisateur du site web de restaurant. Chaque utilisateur a un identifiant unique, une adresse e-mail et un mot de passe. La classe contient également des méthodes pour la gestion des réservations et des messages.
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=edge-middleware-eap) ([Documentation](https://nextjs.org/docs/deployment)).
 
-# Diagramme de classe pour les réservations
+<a name="admin"></a>
+> ### Création d'un administrateur :
 
-La classe Reservation représente une réservation de table dans le restaurant. Chaque réservation a un identifiant unique, une date et une heure, le nombre de personnes et des commentaires ou des demandes spéciales. La classe contient également des références à l'utilisateur qui a effectué la réservation et à la table réservée.
+#### 1. Créez un fichier nommé `seed.ts` dans le répertoire `prisma`
+![seed](https://user-images.githubusercontent.com/81080837/225086373-7d65c95b-998d-4759-acf6-70dd7bb7f95f.png)
+##### Remplacez le mail par le votre.
+#### 2. Ajoutez `prisma.seed` dans votre `package.json`
+![seed1](https://user-images.githubusercontent.com/81080837/225086673-ff5a3c8a-2500-4f8e-ba22-b6b029dfae60.png)
+#### 3. Executez la commande suivante dans le terminal :
+`npx prisma db seed`
 
-# Diagramme de classe pour les tables
+<a name="sql"></a>
+> ### Scripts SQL :
+#### Ajout de prisma dans le projet :
+##### Pour cela, il faut installer le CLI de prisma :
+`npm install prisma --save-dev`
+##### Je crée ensuite le schema de ma base de données prisma avec le template en faisant comme cela :
+`npx prisma init`
+###### Cette commande crée un nouvier dossier `prisma` avec le fichier `schema.prisma` à l'intérieur.
+##### Je connecte ensuite la base de données :
+![prisma](https://user-images.githubusercontent.com/81080837/225087682-d0298202-a433-4045-81e5-c45c6ac5196b.png)
 
-La classe Table représente une table dans le restaurant. Chaque table a un identifiant unique, un numéro et un nombre de places. La classe contient également des références aux réservations associées à cette table.
+##### Et je peux ensuite créer mes tables à l'intérieur :
+![prismadb](https://user-images.githubusercontent.com/81080837/225088105-940954c4-95a3-411f-ba4e-683c4a55f850.png)
 
-# Diagramme de classe pour les messages
+##### J'éxecute ensuite la commande `npx prisma db pull` pour confirmer.
 
-La classe Message représente un message envoyé depuis le site web de restaurant. Chaque message a un identifiant unique, un sujet, un contenu et une date d'envoi. La classe contient également des références à l'utilisateur qui a envoyé le message et à l'administrateur qui l'a reçu.
+<a name="charte"></a>
+> ### Charte graphique :
+![Le Quai Antique](https://user-images.githubusercontent.com/81080837/225022197-e1e736ab-7a6f-4866-9f01-5a44f58f3ee9.png)
 
-# Diagramme de classe pour les menus
+<a name="page"></a>
+> ### Mise en page
 
-La classe Menu représente un menu de plat pour le restaurant. Chaque menu a un identifiant unique, un nom, une description et un prix. La classe contient également des références aux plats individuels qui composent le menu. La classe Dish représente un plat individuel sur le menu du restaurant. Chaque plat a un identifiant unique, un nom, une description et un prix.
+Le design est simple, épuré et moderne, avec une utilisation minimaliste de la couleur et une typographie claire et facile à lire.
+Les boutons ont un arrière-plan jaune-orangé et un texte blanc, avec des bordures arrondies.
+Les images sont utilisées pour illustrer les plats du menu et les photos du restaurant.
+Le site utilise une mise en page responsive pour assurer une expérience utilisateur cohérente sur toutes les tailles d'écran.
 
-# Diagramme de séquence pour la réservation d'une table
+<a name="logos"></a>
+> ### Logos
+![logonobg](https://user-images.githubusercontent.com/81080837/225088883-3296fb0e-9425-43f2-9bec-5ee561c49be8.png)
+![logo](https://user-images.githubusercontent.com/81080837/225088963-d48d7923-aa4f-491f-ac4d-870f9504d6a1.png)
 
-   L'utilisateur accède à la page de réservation sur le site web.
-   Le système affiche les tables disponibles pour la date et l'heure sélectionnées.
-   L'utilisateur choisit une table et sélectionne le nombre de personnes.
-   L'utilisateur fournit ses informations de contact et ajoute des commentaires ou des demandes spéciales.
-   Le système enregistre la réservation et envoie un e-mail de confirmation à l'utilisateur.
+<a name="documentation"></a>
+> ### Documentation
 
-# Diagramme de séquence pour la modification d'une réservation
-
-   L'utilisateur accède à la page de gestion des réservations sur le site web.
-   Le système affiche les réservations en cours pour l'utilisateur.
-   L'utilisateur choisit la réservation qu'il souhaite modifier.
-   L'utilisateur modifie les détails de la réservation, tels que la date et l'heure ou le nombre de personnes.
-   Le système met à jour la réservation et envoie un e-mail de confirmation à l'utilisateur.
-    
-# Diagramme de séquence pour la modification des horaires d'ouverture
-
-   L'administrateur accède à la page de gestion des horaires sur le site web.
-   Le système affiche les horaires d'ouverture actuels pour le restaurant.
-   L'administrateur modifie les horaires d'ouverture pour un jour de la semaine spécifique ou pour un jour férié ou un événement spécial.
-   Le système met à jour les horaires d'ouverture et les affiche sur le site web.
-
-# Diagramme de séquence pour la modification des menus
-
-   L'administrateur accède à la page de gestion des menus sur le site web.
-   Le système affiche les menus actuels pour le restaurant.
-   L'administrateur ajoute, supprime ou modifie un plat du menu.
-   Le système met à jour le menu et l'affiche sur le site web.
-
-
-# Diagramme de cas d'utilisation de l'utilisateur
-
-### Consulter les menus
-
-L'utilisateur peut consulter les menus disponibles du restaurant en naviguant sur le site web. Les menus sont organisés par catégories et affichent les prix et les descriptions des plats.
-
-### Effectuer une réservation
-
-L'utilisateur peut effectuer une réservation pour une date et une heure spécifiques. Il peut choisir le nombre de personnes, sélectionner une table et ajouter des commentaires ou des demandes spéciales. L'utilisateur doit s'inscrire ou se connecter au site pour effectuer une réservation.
-
-### Contacter le restaurant
-
-L'utilisateur peut contacter le restaurant pour poser des questions ou demander des informations supplémentaires. Il peut envoyer un message à l'aide d'un formulaire de contact ou appeler le restaurant directement.
-
-# Diagramme de cas d'utilisation de l'administrateur
-
-### Modifier les menus
-
-L'administrateur peut modifier les menus proposés par le restaurant. Il peut ajouter, supprimer ou modifier des plats, ainsi que modifier les descriptions et les prix. Les modifications sont automatiquement reflétées sur le site web.
-
-### Modifier les horaires d'ouverture
-
-L'administrateur peut modifier les horaires d'ouverture du restaurant. Il peut définir les heures d'ouverture pour chaque jour de la semaine, ainsi que les heures de fermeture pour les jours fériés et les événements spéciaux. Les modifications sont automatiquement reflétées sur le site web.
-
-### Gérer les réservations
-
-L'administrateur peut gérer les réservations effectuées par les clients. Il peut voir les réservations en cours, modifier ou annuler des réservations existantes et ajouter des réservations manuellement. Les modifications sont automatiquement reflétées sur le site web.
+> [Documentation.pdf](https://github.com/clementramos/ecf1/files/10972198/documentation_technique_ramos.pdf)
+> 
+> [Charte graphique et maquettes.pdf](https://github.com/clementramos/ecf1/files/10972199/charte_graphique_ramos.pdf)
