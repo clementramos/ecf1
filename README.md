@@ -80,9 +80,9 @@ Le site utilise une mise en page responsive pour assurer une expérience utilisa
 ![logonobg](https://user-images.githubusercontent.com/81080837/225088883-3296fb0e-9425-43f2-9bec-5ee561c49be8.png)
 ![logo](https://user-images.githubusercontent.com/81080837/225088963-d48d7923-aa4f-491f-ac4d-870f9504d6a1.png)
 
+<a name="documentation"></a>
+> ### Documentation
 
-
-[Diagrammes de cas d'utilisations.pdf](https://github.com/clementramos/ecf1/files/10968642/CAS.USE.pdf)
-![Diagramme de classes](https://user-images.githubusercontent.com/81080837/225004591-f456cf7d-47c4-474b-b6c3-115be10c25bc.jpg)
-![DIAGRAMME DE SEQUENCE](https://user-images.githubusercontent.com/81080837/225004596-96b0aaeb-ce83-4127-879d-037566ac30c4.jpg)
-![Diag actvité réserver une table](https://user-images.githubusercontent.com/81080837/225004676-0d27224c-eeaf-4367-a77e-d457105ea0b5.jpg)
+> [Documentation.pdf](https://github.com/clementramos/ecf1/files/10972198/documentation_technique_ramos.pdf)
+> 
+> [Charte graphique et maquettes.pdf](https://github.com/clementramos/ecf1/files/10972199/charte_graphique_ramos.pdf)
