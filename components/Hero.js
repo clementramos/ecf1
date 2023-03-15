@@ -44,17 +44,23 @@ export default function Hero() {
 
   return (
     <>
-      <Header />
       <div>
-        <div className="bg-black">
-          <div className="pt-12 pb-48 bg-cuistot bg-cover h-screen">
-            <h1 className="sm:pt-48 pt-20 text-center sm:text-[10rem] text-[4rem] w-full text-white">
+        <div className="bg-black h-full">
+          <div className="pb-48 bg-cuistot sm:bg-cover bg-center h-screen">
+            <Header />
+            <h1 className="sm:pt-48 pt-48 text-center sm:text-[10rem] text-[4rem] w-full text-white">
               Le Quai Antique
             </h1>
             <p className="uppercase text-center sm:text-5xl text-xl w-full text-white">
               {text}
             </p>
+            <div className="flex justify-center items-center pt-12">
+              <button className="text-xl uppercase w-auto py-4 px-10 border-white border border-white text-white bg-transparent hover:shadow-md hover:shadow-white">
+                <a href="/images">Accèdez à la galerie d'images</a>
+              </button>
+            </div>
           </div>
+
           <div
             id="home"
             className="sm:h-screen h-full sm:grid sm:grid-cols-3 sm:gap-5 sm:p-10 grid grid-cols-1 gap-5 p-10"
@@ -579,7 +585,7 @@ export default function Hero() {
                   </a>
                 </p>
                 <div className="text-center pt-5">
-                  <button class="bg-red-ecf text-white font-thin py-2 px-4 border border-yellow-ecf rounded-lg text-2xl mx-auto hover:scale-125">
+                  <button className="text-xl uppercase w-auto py-4 px-10 border-yellow-ecf border border-yellow-ecf text-yellow-ecf bg-transparent hover:shadow-md hover:shadow-white">
                     <a href="/booking">Réserver</a>
                   </button>
                 </div>
@@ -600,7 +606,7 @@ export default function Hero() {
                   </a>
                 </p>
                 <div className="text-center pt-5">
-                  <button class="bg-red-ecf text-white font-thin py-2 px-4 border border-yellow-ecf rounded-lg text-2xl mx-auto hover:scale-125">
+                  <button className="text-xl uppercase w-auto py-4 px-10 border-yellow-ecf border border-yellow-ecf text-yellow-ecf bg-transparent hover:shadow-md hover:shadow-white">
                     <a href="/booking">Réserver</a>
                   </button>
                 </div>

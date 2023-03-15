@@ -5,7 +5,15 @@ import { signOut, useSession } from "next-auth/react";
 import Router from "next/router";
 
 const ProfilePage = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+  const user = session?.user;
+  if (user?.role === "USER") {
+    return (
+      <>
+        <Header />
+      </>
+    );
+  }
   if (session) {
     return (
       <>
@@ -141,7 +149,7 @@ const ProfilePage = () => {
         <div className="bg-black h-screen">
           <p className="text-center text-2xl p-96 text-white">
             Vous n'êtes pas authentifié. <br></br> Merci de vous{" "}
-            <a href="/loginPage" className="underline text-yellow-ecf">
+            <a href="/api/auth/signin" className="underline text-yellow-ecf">
               connecter
             </a>{" "}
             pour accèder à votre compte

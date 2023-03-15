@@ -1,16 +1,18 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-async function create() {
-  await prisma.user.create({
+async function update() {
+  await prisma.user.update({
+    where:{
+      email: `ramos.clement@outlook.fr`,
+    },
     data: {
-      email: `test@gmail.com`,
       role: `ADMIN`,
     },
   });
 }
 
-create()
+update()
   .catch((e) => {
     console.error(e);
     process.exit(1);

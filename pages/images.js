@@ -31,8 +31,14 @@ export default function Home({ images }) {
             );
           })}
         </ul>
-        <div className="flex justify-center items-center ">
-          <button className="text-xl font-bold w-auto py-2 px-5 border-white border border-white rounded text-white bg-transparent hover:shadow-xl hover:shadow-yellow-ecf"><a href="/">Retour à la page principale</a></button>
+        <div className="flex justify-center items-center">
+          <button className="text-xl font-bold w-auto py-2 px-5 border-white border border-white rounded text-white bg-transparent hover:shadow-xl hover:shadow-yellow-ecf mr-10">
+            <a href="/">Retour à la page principale</a>
+          </button>
+
+          <button className="text-xl font-bold w-auto py-2 px-5 border-white border border-white rounded text-white bg-transparent hover:shadow-xl hover:shadow-yellow-ecf">
+            <a href="/booking">Réserver une table</a>
+          </button>
         </div>
       </div>
     </>

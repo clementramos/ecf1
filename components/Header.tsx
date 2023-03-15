@@ -73,7 +73,7 @@ const Header: React.FC = () => {
     right = (
       <div className="right text-right ml-auto">
         <Link href="/compte">
-          <button className='border-white border-2 p-1'>
+          <button className=' p-1'>
             <a className='text-xl text-white'>Mon compte</a>
           </button>
         </Link>
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <nav className='bg-transparent h-20 w-full fixed top-0 z-50 justify-between mx-auto flex items-center pt-5 px-10'>
+    <nav className='bg-transparent h-fit fixed w-full top-0 z-50 justify-between mx-auto flex items-center px-10'>
       {left}
       {right}
     </nav>
