@@ -4,7 +4,7 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import { useSession, getSession } from "next-auth/react";
 import Header from "../components/Header";
-import Post, { PostProps } from "../components/Post";
+import Hour, { HourProps } from "../components/Hours";
 import prisma from "../lib/prisma";
 import Router from "next/router";
 
@@ -15,15 +15,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return { props: { drafts: [] } };
   }
 
-  const drafts = await prisma.post.findMany({
+  const drafts = await prisma.hours.findMany({
     where: {
-      author: { email: session.user.email },
       published: false,
-    },
-    include: {
-      author: {
-        select: { name: true },
-      },
     },
   });
   return {
@@ -32,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 };
 
 type Props = {
-  drafts: PostProps[];
+  drafts: HourProps[];
 };
 
 const Drafts: React.FC<Props> = (props) => {
@@ -64,21 +58,21 @@ const Drafts: React.FC<Props> = (props) => {
         </p>
         <main>
           {props.drafts.length > 0 ? (
-            props.drafts.map((post) => (
+            props.drafts.map((hours) => (
               <>
                 <div className="relative mb-10">
                   <a
                     className="absolute inset-0 z-10 w-3/4 bg-white text-center flex flex-col mx-auto items-center justify-center opacity-0 hover:opacity-100 bg-yellow-ecf bg-opacity-95 rounded duration-300 cursor-pointer text-5xl"
-                    onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}
+                    onClick={() => Router.push("/h/[id]", `/h/${hours.id}`)}
                   >
-                    Voir le menu
+                    Voir les horaires
                   </a>
                   <a className="relative w-3/4">
                     <div
-                      key={post.id}
+                      key={hours.id}
                       className="text-white mx-auto h-1/2 flex flex-wrap content-center w-3/4 rounded border-yellow-ecf border"
                     >
-                      <Post post={post} />
+                      <Hour hours={hours} />
                     </div>
                   </a>
                 </div>

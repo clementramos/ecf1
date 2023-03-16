@@ -3,18 +3,18 @@ import Link from "next/link";
 import Header from "/components/Header";
 import { signOut, useSession } from "next-auth/react";
 import Router from "next/router";
+import axios from "axios";
 
-const ProfilePage = () => {
-  const { data: session } = useSession();
-  const user = session?.user;
-  if (user?.role === "USER") {
+const ProfilePage = ({ user }) => {
+  const { data, status, session } = useSession();
+  if (status === "loading") {
     return (
       <>
         <Header />
       </>
     );
   }
-  if (session) {
+  if (status === "authenticated") {
     return (
       <>
         <Header />
@@ -29,13 +29,20 @@ const ProfilePage = () => {
           />
           <div className="column w-3/4 items-center gap-8 rounded-2xl bg-neutral-600 py-8 px-4 shadow-lg shadow-yellow-ecf border border-yellow-ecf pt-8 sm:min-w-[60rem] sm:px-10">
             <p className="pb-10 text-4xl text-center text-white sm:px-5 sm:text-center sm:text-4xl">
-              Bonjour, {session.user.name} !
+              Bonjour, {data.user.name} !
             </p>
             <p className="rounded-lg bg-gray-300 p-2 text-2xl w-fit mx-auto font-mono">
-              {session.user.email} - type de compte : {session.user.role}
+              {data.user.email} - type de compte : {data.user.role}
             </p>
+            <img
+              src={data.user.image || "/placeholder_avatar.png"}
+              alt="photo de profil"
+              width={200}
+              height={200}
+              className="py-3 mx-auto rounded"
+            />
             <p className="text-white text-3xl pt-5 underline">Accès rapide :</p>
-            <div className="grid grid-cols-4 gap-4 pt-5">
+            <div className="grid grid-cols-3 gap-4 pt-5">
               <Link
                 href="addPictures"
                 className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
@@ -46,7 +53,7 @@ const ProfilePage = () => {
                 href="create"
                 className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
               >
-                Créer un menu / carte
+                Créer un menu
               </Link>
               <Link
                 href="menus"
@@ -59,6 +66,18 @@ const ProfilePage = () => {
                 className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
               >
                 Mes brouillons
+              </Link>
+              <Link
+                href="horaires"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Voir les horaires d'ouverture
+              </Link>
+              <Link
+                href="createHours"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Modifier les horaires d'ouverture
               </Link>
             </div>
 

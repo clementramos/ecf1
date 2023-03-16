@@ -567,6 +567,18 @@ export default function Hero() {
             alt="midi"
             className="mx-auto"
           />
+          <div className="flex justify-center items-center">
+            <button className="text-xl uppercase w-auto border-white border-none text-white bg-transparent hover:shadow-lg hover:shadow-yellow-ecf hover:scale-125">
+              {" "}<a href="/menus"> <Image
+                src="/MENU.png"
+                width={500}
+                height={100}
+                alt="midi"
+                className="mx-auto"
+              /></a>
+             
+            </button>
+          </div>
           <div id="contact" className="pt-20 h-full bg-black">
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 grid grid-cols-1 gap-4">
               <div className="mx-auto">
@@ -642,8 +654,9 @@ export default function Hero() {
                 </a>
               </p>
               <p className="text-white text-xl pb-10">
-                Horaires: du lundi au vendredi de 07:00 à 15:00 et de 18:00 à
-                23:00
+                {/* Horaires: du lundi au vendredi de 07:00 à 15:00 et de 18:00 à
+                23:00 */}
+                <a href="horaires">Horaires</a>
               </p>
               <a
                 className="text-red-ecf text-xl hover:underline"

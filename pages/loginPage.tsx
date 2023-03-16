@@ -1,13 +1,53 @@
 "use client";
 import Link from "next/link";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { signIn } from 'next-auth/react';
+import { useRouter } from "next/router";
+import { useState } from 'react'
 
 const ProfilePage = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    if (!email || !password) {
+      setError('Please enter both email and password.')
+      return
+    }
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+    const data = await response.json()
+    if (!response.ok) {
+      setError(data.message)
+      return
+    } else {
+      router.push('/compte')
+    }
+    console.log(data)
+  }
+  const handleSignIn = async () => {
+    const result = await signIn('google', { redirect: false });
+
+    if (result?.error) {
+      // handle sign in error
+    } else if (result?.url) {
+      // redirect to sign in page
+      router.push(result.url);
+    } else {
+      // sign in successful, redirect to dashboard
+      router.push('/compte');
+    }
+  };
   return (
     <>
       <Navbar />
-      <div class="h-full bg-black bg-no-repeat bg-cover to-orange-400">
+      <div className="h-full bg-black bg-no-repeat bg-cover to-orange-400">
         <div className="pt-16 pb-6 flex flex-col items-center justify-center">
           <img
             src="/logonobg.png"
@@ -31,27 +71,28 @@ const ProfilePage = () => {
               </a>
             </p>
             <button
-              aria-label="Continuer avec github"
+              aria-label="Continuer avec Google"
               role="button"
-              class="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full"
+              onClick={handleSignIn}
+              className="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full"
             >
               <img
-                src="/github-mark.svg"
-                alt="github"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
+                alt="Google"
                 width={25}
               />
-              <p class="text-base font-medium ml-4 text-gray-700">
-                Connexion avec GitHub
+              <p className="text-base font-medium ml-4 text-gray-700">
+                Connexion avec Google
               </p>
             </button>
-            <div class="w-full flex items-center justify-between py-5 z-50">
-              <hr class="w-full bg-black h-0.5" />
-              <p class="text-base font-medium leading-4 px-2.5 text-black">
+            <div className="w-full flex items-center justify-between py-5 z-50">
+              <hr className="w-full bg-black h-0.5" />
+              <p className="text-base font-medium leading-4 px-2.5 text-black">
                 OU
               </p>
-              <hr class="w-full bg-black h-0.5" />
+              <hr className="w-full bg-black h-0.5" />
             </div>
-            <form className="column  max-w-5xl">
+            <form className="column  max-w-5xl" onSubmit={handleSubmit}>
               <label
                 htmlFor="email"
                 className="text-left block text-base font-medium text-black"
@@ -61,6 +102,8 @@ const ProfilePage = () => {
                   className="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full"
                   required
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   name="email"
                   id="txtEmail"
                   placeholder="moi@mail.com"
@@ -75,13 +118,15 @@ const ProfilePage = () => {
                   className="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full"
                   required
                   type="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                   name="password"
                   id="txtPassword"
                   placeholder="Mot de passe"
                 />
               </label>
-              <div id="divLoginError" class="group">
-                <div id="forgotPassword" class="errorlabel">
+              <div id="divLoginError" className="group">
+                <div id="forgotPassword" className="errorlabel">
                   <a
                     href="passwordReset"
                     className="underline decoration-yellow-ecf hover:text-yellow-ecf font-medium"
@@ -103,7 +148,7 @@ const ProfilePage = () => {
               En continuant, vous indiquez acceptez notre{" "}
               <a
                 href="mentions-legales"
-                class="underline decoration-yellow-ecf hover:text-yellow-ecf"
+                className="underline decoration-yellow-ecf hover:text-yellow-ecf"
                 target="_blank"
               >
                 politique de confidentialité{" "}

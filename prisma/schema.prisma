@@ -21,6 +21,13 @@ model Post {
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  String?
 }
+model Hours {
+  id        String  @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  authorId  String?
+}
 
 model Image {
   id       String @id @default(cuid())
@@ -56,7 +63,7 @@ model Session {
   userId       String   @map("user_id")
   expires      DateTime
   role         Role     @default(USER)
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
@@ -70,7 +77,10 @@ model User {
   posts         Post[]
   accounts      Account[]
   sessions      Session[]
+  allergies     String?    
+  convives      String?    
   role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
 }
 
 enum Role {
