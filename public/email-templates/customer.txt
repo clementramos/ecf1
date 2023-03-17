@@ -1,4 +1,4 @@
-Message Received!
+Réservation reçue !
 
 Dear %NAME%:
 

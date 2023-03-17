@@ -13,7 +13,7 @@ const mailConfig = {
     }
 }
 
-const adminEmail = 'The Webmaster <ramos.clementskype@gmail.com>';
+const adminEmail = 'Le Quai Antique <wbemaster@lequaiantique.fr>';
 
 // Function for grabbing template files
 async function getPubFile(file) {
@@ -60,7 +60,7 @@ async function sendEmails(req, res) {
     let info = await transporter.sendMail({
         from: adminEmail,
         to: recipEmail, // list of receivers
-        subject: "Message Received ✔", // Subject line
+        subject: "Réservation reçue !", // Subject line
         text: sendTxt, // plain text body
         html: sendHtml, // html body
     });
@@ -89,7 +89,7 @@ async function sendEmails(req, res) {
     info = await transporter.sendMail({
         from: recipEmail,
         to: adminEmail, // list of receivers
-        subject: req.body.subject ? req.body.subject : "New Message From Website ✔", // Subject line
+        subject: req.body.subject ? req.body.subject : "Nouvelle réservation !", // Subject line
         text: sendTxt, // plain text body
         html: sendHtml, // html body
     });

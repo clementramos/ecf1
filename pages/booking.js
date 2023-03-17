@@ -128,6 +128,8 @@ export default function Home() {
                   <input
                     type="number"
                     placeholder="10"
+                    min={1}
+                    max={10}
                     isInvalid={errors.couverts}
                     {...register("couverts")}
                     className="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mb-5"
