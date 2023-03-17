@@ -61,6 +61,9 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 ##### Et je peux ensuite créer mes tables à l'intérieur :
 ![prismadb](https://user-images.githubusercontent.com/81080837/225088105-940954c4-95a3-411f-ba4e-683c4a55f850.png)
 
+###### Transcris en SQL :
+![sql](https://user-images.githubusercontent.com/81080837/225883001-c5734271-99cb-4f06-a3b8-674f65a3e57c.png)
+
 ##### J'éxecute ensuite la commande `npx prisma db pull` pour confirmer.
 
 <a name="charte"></a>
