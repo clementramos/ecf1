@@ -2,37 +2,37 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { signIn } from 'next-auth/react';
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useState } from 'react'
+import { useState } from "react";
 
 const ProfilePage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (!email || !password) {
-      setError('Please enter both email and password.')
-      return
+      setError("Please enter both email and password.");
+      return;
     }
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    })
-    const data = await response.json()
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
     if (!response.ok) {
-      setError(data.message)
-      return
+      setError(data.message);
+      return;
     } else {
-      router.push('/compte')
+      router.push("/compte");
     }
-    console.log(data)
-  }
+    console.log(data);
+  };
   const handleSignIn = async () => {
-    const result = await signIn('google', { redirect: false });
+    const result = await signIn("google", { redirect: false });
 
     if (result?.error) {
       // handle sign in error
@@ -41,7 +41,7 @@ const ProfilePage = () => {
       router.push(result.url);
     } else {
       // sign in successful, redirect to dashboard
-      router.push('/compte');
+      router.push("/compte");
     }
   };
   return (
@@ -93,6 +93,7 @@ const ProfilePage = () => {
               <hr className="w-full bg-black h-0.5" />
             </div>
             <form className="column  max-w-5xl" onSubmit={handleSubmit}>
+
               <label
                 htmlFor="email"
                 className="text-left block text-base font-medium text-black"

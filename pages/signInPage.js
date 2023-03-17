@@ -23,7 +23,7 @@ function SignupPage() {
     const response = await fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, allergies, convives, password })
+      body: JSON.stringify({ name, email, allergies, convives, password })
     })
     const data = await response.json()
     if (!response.ok) {
@@ -103,7 +103,7 @@ function SignupPage() {
                 onChange={(event) => setAllergies(event.target.value)}
                 required
                 type="text"
-                name="email"
+                name="allergies"
                 id="txtEmail"
                 placeholder="OUI / NON"
               />{" "}
@@ -121,6 +121,7 @@ function SignupPage() {
                 onChange={(event) => setConvives(event.target.value)}
                 class="focus:outline-none focus:ring focus:border-none focus:ring-yellow-ecf py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full "
                 id="exampleFormControlInputText"
+                name="convives"
                 placeholder="Max. 10"
                 min={1}
                 max={10}

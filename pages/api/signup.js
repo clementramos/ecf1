@@ -4,9 +4,9 @@ import bcrypt from 'bcrypt'
 const prisma = new PrismaClient()
 
 export default async function signup(req, res) {
-  const { email, password, allergies, convives } = req.body
+  const { name, email, password, allergies, convives } = req.body
 
-  if (!email || !password || !allergies || !convives ) {
+  if (!name || !email || !password || !allergies || !convives ) {
     res.status(400).json({ message: 'Error' })
     return
   }
@@ -16,6 +16,9 @@ export default async function signup(req, res) {
   try {
     const user = await prisma.user.create({
       data: {
+        name,
+        convives,
+        allergies,
         email,
         password: hashedPassword
       }

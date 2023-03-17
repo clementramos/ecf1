@@ -21,6 +21,7 @@ model Post {
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  String?
 }
+
 model Hours {
   id        String  @id @default(cuid())
   title     String
@@ -67,20 +68,21 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  username      String?   @unique
-  password      String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  posts         Post[]
-  accounts      Account[]
-  sessions      Session[]
-  allergies     String?    
-  convives      String?    
-  role          Role      @default(USER)
-  createdAt     DateTime  @default(now())
+  id               String    @id @default(cuid())
+  name             String?
+  username         String?   @unique
+  password         String?
+  email            String?   @unique
+  emailVerified    DateTime?
+  image            String?
+  posts            Post[]
+  accounts         Account[]
+  sessions         Session[]
+  allergies        String?
+  convives         String?
+  role             Role      @default(USER)
+  createdAt        DateTime  @default(now())
+  is_authenticated Boolean   @default(true)
 }
 
 enum Role {

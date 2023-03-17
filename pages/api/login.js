@@ -15,14 +15,14 @@ export default async function login(req, res) {
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
-    res.status(401).json({ message: "Invalid credentials." });
+    res.status(401).json({ message: "E-mail invalide" });
     return;
   }
 
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   if (!passwordMatch) {
-    res.status(401).json({ message: "Invalid credentials." });
+    res.status(401).json({ message: "Mot de passe invalide" });
     return;
   }
 

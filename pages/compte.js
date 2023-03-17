@@ -2,19 +2,19 @@
 import Link from "next/link";
 import Header from "/components/Header";
 import { signOut, useSession } from "next-auth/react";
-import Router from "next/router";
-import axios from "axios";
+import { useRouter } from "next/router";
 
 const ProfilePage = ({ user }) => {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/");
+  };
   const { data, status, session } = useSession();
-  if (status === "loading") {
-    return (
-      <>
-        <Header />
-      </>
-    );
-  }
-  if (status === "authenticated") {
+  console.log(data);
+  console.log(status);
+  console.log(session);
+  if (status === "authenticated" && user?.role === "USER") {
     return (
       <>
         <Header />
@@ -41,46 +41,6 @@ const ProfilePage = ({ user }) => {
               height={200}
               className="py-3 mx-auto rounded"
             />
-            <p className="text-white text-3xl pt-5 underline">Accès rapide :</p>
-            <div className="grid grid-cols-3 gap-4 pt-5">
-              <Link
-                href="addPictures"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Ajouter des photos
-              </Link>
-              <Link
-                href="create"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Créer un menu
-              </Link>
-              <Link
-                href="menus"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Voir les menus du moment
-              </Link>
-              <Link
-                href="/drafts"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Mes brouillons
-              </Link>
-              <Link
-                href="horaires"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Voir les horaires d'ouverture
-              </Link>
-              <Link
-                href="createHours"
-                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
-              >
-                Modifier les horaires d'ouverture
-              </Link>
-            </div>
-
             <div class="w-full flex items-center justify-between py-5 z-50">
               <hr class="w-full bg-black h-0.5" />
               <img
@@ -136,6 +96,99 @@ const ProfilePage = ({ user }) => {
                 Sauvegarder vos préférences
               </button>
             </form>
+            <div class="w-full flex items-center justify-between py-5 z-50">
+              <hr class="w-full bg-black h-0.5" />
+              <img
+                src={"/logout.svg"}
+                alt="se déconnecter"
+                width={100}
+                height={100}
+                className="p-3 mx-auto rounded-lg"
+              />
+              <hr class="w-full bg-black h-0.5" />
+            </div>
+            <div className="text-center ">
+              <button
+                type="button"
+                className="rounded-full text-xl border-2 border-red-ecf bg-white px-8 py-2 font-bold text-red-ecf hover:bg-red-ecf hover:text-white focus:bg-red-ecf focus:text-white"
+                onClick={handleSignOut}
+              >
+                Se déconnecter
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+  if (status === "authenticated" && user?.role === "ADMIN") {
+    return (
+      <>
+        <Header />
+        <div className="card bg-black shadow-xl shadow-cyan-500 pt-12 pb-24 h-full flex w-full flex-1 shrink-0 flex-col items-center justify-center px-8 text-center sm:px-20">
+          <img
+            src="/logonobg.png"
+            alt="programme"
+            width={400}
+            height={500}
+            className="mx-auto sm:px-5"
+            loading="eager"
+          />
+          <div className="column w-3/4 items-center gap-8 rounded-2xl bg-neutral-600 py-8 px-4 shadow-lg shadow-yellow-ecf border border-yellow-ecf pt-8 sm:min-w-[60rem] sm:px-10">
+            <p className="pb-10 text-4xl text-center text-white sm:px-5 sm:text-center sm:text-4xl">
+              Bonjour, {data.user.name} !
+            </p>
+            <p className="rounded-lg bg-gray-300 p-2 text-2xl w-fit mx-auto font-mono">
+              {data.user.email} - type de compte : {data.user.role}
+            </p>
+            <img
+              src={data.user.image || "/placeholder_avatar.png"}
+              alt="photo de profil"
+              width={200}
+              height={200}
+              className="py-3 mx-auto rounded"
+            />
+            <p className="text-white text-3xl pt-5 underline">
+              Accès administrateur :
+            </p>
+            <div className="grid grid-cols-3 gap-4 pt-5">
+              <Link
+                href="addPictures"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Ajouter des photos
+              </Link>
+              <Link
+                href="create"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Créer un menu
+              </Link>
+              <Link
+                href="menus"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Voir les menus du moment
+              </Link>
+              <Link
+                href="/drafts"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Mes brouillons
+              </Link>
+              <Link
+                href="horaires"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Voir les horaires d'ouverture
+              </Link>
+              <Link
+                href="createHours"
+                className="text-white text-xl border border-white p-4 shadow-yellow-ecf shadow-md hover:bg-neutral-800"
+              >
+                Modifier les horaires d'ouverture
+              </Link>
+            </div>
 
             <div class="w-full flex items-center justify-between py-5 z-50">
               <hr class="w-full bg-black h-0.5" />
@@ -152,7 +205,7 @@ const ProfilePage = ({ user }) => {
               <button
                 type="button"
                 className="rounded-full text-xl border-2 border-red-ecf bg-white px-8 py-2 font-bold text-red-ecf hover:bg-red-ecf hover:text-white focus:bg-red-ecf focus:text-white"
-                onClick={() => signOut().then(() => Router.push("/"))}
+                onClick={handleSignOut}
               >
                 Se déconnecter
               </button>
