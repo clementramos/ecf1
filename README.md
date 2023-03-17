@@ -40,7 +40,7 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 > ### Création d'un administrateur :
 
 #### 1. Créez un fichier nommé `seed.ts` dans le répertoire `prisma`
-![seed](https://user-images.githubusercontent.com/81080837/225086373-7d65c95b-998d-4759-acf6-70dd7bb7f95f.png)
+![update](https://user-images.githubusercontent.com/81080837/225889617-27b7ae37-8f32-4400-8392-ea6ddc89ce3b.png)
 ##### Remplacez le mail par le votre.
 #### 2. Ajoutez `prisma.seed` dans votre `package.json`
 ![seed1](https://user-images.githubusercontent.com/81080837/225086673-ff5a3c8a-2500-4f8e-ba22-b6b029dfae60.png)
