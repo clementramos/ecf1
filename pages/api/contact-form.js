@@ -13,7 +13,7 @@ const mailConfig = {
     }
 }
 
-const adminEmail = 'Le Quai Antique <wbemaster@lequaiantique.fr>';
+const adminEmail = 'Le Quai Antique <ramos.clement@outlook.fr>';
 
 // Function for grabbing template files
 async function getPubFile(file) {
