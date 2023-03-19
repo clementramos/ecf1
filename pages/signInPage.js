@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Header from "/components/Header";
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -34,7 +33,7 @@ function SignupPage() {
   }
   return (
     <>
-      <Navbar />
+      <Header />
       <div class="h-full bg-black bg-no-repeat bg-cover to-orange-400">
         <div className="pt-16 pb-6 flex flex-col items-center justify-center">
           <img
@@ -167,7 +166,6 @@ function SignupPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

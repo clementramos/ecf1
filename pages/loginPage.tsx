@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -46,7 +45,7 @@ const ProfilePage = () => {
   };
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="h-full bg-black bg-no-repeat bg-cover to-orange-400">
         <div className="pt-16 pb-6 flex flex-col items-center justify-center">
           <img
@@ -159,7 +158,6 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
